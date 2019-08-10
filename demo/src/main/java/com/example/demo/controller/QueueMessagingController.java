@@ -26,16 +26,23 @@ public class QueueMessagingController {
 	@Autowired
 	public QueueMessagingService queueMessagingService;
 	
-	@PostMapping("/api/addqueue")
-	public @ResponseBody Map<String,Object> addMessageQueue(@RequestBody RequestBodyModel request){
+	@PostMapping("/api/addmessage")
+	public @ResponseBody Map<String,Object> addMessage(@RequestBody RequestBodyModel request){
 		
-		return null;
+		return queueMessagingService.addQueueMessage(request);
 	}
 	
 	@PostMapping("/api/getAllMessages")
 	public @ResponseBody List<Message> getAllMessages(){
-		
-		return queueMessagingService.getAllMessages();
+		List<Message> messageList=queueMessagingService.getAllMessages();
+		return messageList;
 	}
+	
+	@PostMapping("/api/addqueue")
+	public @ResponseBody Map<String,Object> addQueue(@RequestBody RequestBodyModel request){
+		
+		return queueMessagingService.addQueue(request);
+	}
+	
 
 }

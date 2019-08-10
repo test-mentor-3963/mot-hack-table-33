@@ -33,26 +33,40 @@ public class QueueMessagingService {
 	public Map<String,Object> addQueueMessage(RequestBodyModel request){
 		try{
 			Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+			Message message = new Message();
+			message.setMessage(request.getMessage());
+			message.setQueueId(Long.parseLong(request.getQueueId()));
+			message.setMessageTime(currentTime);
+			Message mesSaved =messageRepository.save(message);
+			return ResponseUtil.generateSuccessMessage("Successfully Added",mesSaved);
+		}catch(Exception e){
+			return ResponseUtil.generateFailureMessage(e.getMessage());
+
+		}
+
+	}
+	
+	public Map<String,Object> addQueue(RequestBodyModel request){
+		try{
+			Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 			Queue queue = new Queue();
 			queue.setQueueName(request.getQueueName());
 			queue.setQueueMaxLimit(request.getQueueLimit());
 			queue.setAddedTime(currentTime);
 			Queue queSaved = queueRepository.save(queue);
-			Message message = new Message();
-			message.setMessage(request.getMessage());
-			message.setQueueId(queSaved.getQueueId());
-			message.setMessageTime(currentTime);
-			messageRepository.save(message);
-			return ResponseUtil.generateSuccessMessage("Successfully Added");
-		}catch(Exception e){
 			
+			return ResponseUtil.generateSuccessMessage("Successfully Added",queSaved);
+		}catch(Exception e){
+			return ResponseUtil.generateFailureMessage(e.getMessage());
+
 		}
 
-		return null;
 	}
+
 	
-	public List getAllMessages(){
-		 return null;
+	public List<Message> getAllMessages(){
+		List<Message>  allMessages=messageRepository.findAll();
+		 return allMessages;
 	}
 
 }

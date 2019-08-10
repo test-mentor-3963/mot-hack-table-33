@@ -12,6 +12,7 @@ public class RequestBodyModel {
 	private String queueName;
 	private String queueLimit;
 	private String message;
+	private String queueId;
 	/**
 	 * @return the queueName
 	 */
@@ -47,6 +48,18 @@ public class RequestBodyModel {
 	 */
 	public void setMessage(String message) {
 		this.message = message;
+	}
+	/**
+	 * @return the queueId
+	 */
+	public String getQueueId() {
+		return queueId;
+	}
+	/**
+	 * @param queueId the queueId to set
+	 */
+	public void setQueueId(String queueId) {
+		this.queueId = queueId;
 	}
 	
 	
