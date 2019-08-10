@@ -7,7 +7,7 @@ package com.example.demo.model;
  * @author user
  *
  */
-public class RequestBody {
+public class RequestBodyModel {
 
 	private String queueName;
 	private String queueLimit;
