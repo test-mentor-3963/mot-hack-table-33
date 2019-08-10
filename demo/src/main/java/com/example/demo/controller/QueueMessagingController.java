@@ -34,8 +34,8 @@ public class QueueMessagingController {
 	
 	@PostMapping("/api/getAllMessages")
 	public @ResponseBody List<Message> getAllMessages(){
-		
-		return queueMessagingService.getAllMessages();
+		List<Message> messageList=queueMessagingService.getAllMessages();
+		return messageList;
 	}
 
 }

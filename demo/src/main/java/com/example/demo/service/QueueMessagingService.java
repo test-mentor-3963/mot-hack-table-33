@@ -51,8 +51,9 @@ public class QueueMessagingService {
 		return null;
 	}
 	
-	public List getAllMessages(){
-		 return null;
+	public List<Message> getAllMessages(){
+		List<Message>  allMessages=messageRepository.findAll();
+		 return allMessages;
 	}
 
 }
