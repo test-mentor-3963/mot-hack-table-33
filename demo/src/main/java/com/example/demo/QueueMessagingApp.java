@@ -5,10 +5,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class QueueController {
+public class QueueMessagingApp {
 	
 	public static void main(String[] args) {
-		SpringApplication.run(QueueController.class, args);
+		SpringApplication.run(QueueMessagingApp.class, args);
 		
 		
 	}
