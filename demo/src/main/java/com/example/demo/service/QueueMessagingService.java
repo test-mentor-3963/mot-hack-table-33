@@ -4,7 +4,7 @@
 package com.example.demo.service;
 
 import java.sql.Timestamp;
-
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -67,6 +67,25 @@ public class QueueMessagingService {
 	public List<Message> getAllMessages(){
 		List<Message>  allMessages=messageRepository.findAll();
 		 return allMessages;
+	}
+	
+	public List<Queue> getAllQueues(){
+		List<Queue>  allQueues=queueRepository.findAll();
+		 return allQueues;
+	}
+
+	public Map getAllQueueMessages() {
+		List<Queue>  allQueues=	getAllQueues();
+		List<Message> allMessages=getAllMessages();
+		Map<String,List> allDataMap= new HashMap<String,List>();
+		allDataMap.put("queues", allQueues);
+		allDataMap.put("messages", allMessages);
+		return allDataMap;
+	}
+
+	public List<Message> findMessages(String message) {
+		
+		return messageRepository.findMessages(message);
 	}
 
 }

@@ -7,8 +7,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,9 +33,20 @@ public class QueueMessagingController {
 		return queueMessagingService.addQueueMessage(request);
 	}
 	
-	@PostMapping("/api/getAllMessages")
+	@GetMapping("/api/getAllMessages")
 	public @ResponseBody List<Message> getAllMessages(){
 		List<Message> messageList=queueMessagingService.getAllMessages();
+		return messageList;
+	}
+	@GetMapping("/api/getAllQueuesMessages")
+	public @ResponseBody Map<String,List> getAllQueuesMessages(){
+		Map messageList=queueMessagingService.getAllQueueMessages();
+		return messageList;
+	}
+	
+	@GetMapping("/api/findMessages")
+	public @ResponseBody List<Message> findMessages(@RequestParam(name="message") String message){
+		List<Message> messageList=queueMessagingService.findMessages(message);
 		return messageList;
 	}
 	
