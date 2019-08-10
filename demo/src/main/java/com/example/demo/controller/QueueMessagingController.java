@@ -28,7 +28,6 @@ public class QueueMessagingController {
 	
 	@PostMapping("/api/addmessage")
 	public @ResponseBody Map<String,Object> addMessage(@RequestBody RequestBodyModel request){
-		
 		return queueMessagingService.addQueueMessage(request);
 	}
 	
@@ -40,7 +39,6 @@ public class QueueMessagingController {
 	
 	@PostMapping("/api/addqueue")
 	public @ResponseBody Map<String,Object> addQueue(@RequestBody RequestBodyModel request){
-		
 		return queueMessagingService.addQueue(request);
 	}
 	
