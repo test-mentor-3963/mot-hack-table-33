@@ -3,8 +3,12 @@
  */
 package com.example.demo.entitiy;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -16,6 +20,7 @@ import javax.persistence.Table;
 @Table(name="QUEUE")
 public class Queue {
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	@Column(name = "QUEUE_ID")
 	private long queueId;
 	
@@ -26,7 +31,7 @@ public class Queue {
 	private String queueMaxLimit;
 	
 	@Column(name = "ADDED_TIME")
-	private String addedTime;
+	private Timestamp addedTime;
 
 	/**
 	 * @return the queueId
@@ -73,16 +78,18 @@ public class Queue {
 	/**
 	 * @return the addedTime
 	 */
-	public String getAddedTime() {
+	public Timestamp getAddedTime() {
 		return addedTime;
 	}
 
 	/**
 	 * @param addedTime the addedTime to set
 	 */
-	public void setAddedTime(String addedTime) {
+	public void setAddedTime(Timestamp addedTime) {
 		this.addedTime = addedTime;
 	}
+
+
 	
 	
 

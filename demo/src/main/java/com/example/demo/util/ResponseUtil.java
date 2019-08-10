@@ -15,15 +15,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class ResponseUtil {
 	
-	public Map<String,Object> generateSuccessMessage(String message,Object data){
+	public static Map<String,Object> generateSuccessMessage(Object data){
 		Map<String,Object> response = new HashMap<>();
 		response.put("status", true);
 		response.put("data", data);
-		response.put("message", message);
 	return response;	
 	}
 	
-	public Map<String,Object> generateFailureMessage(String message){
+	public static Map<String,Object> generateFailureMessage(String message){
 		Map<String,Object> response = new HashMap<>();
 		response.put("status", false);
 		response.put("message", message);
