@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.model.RequestBody;
+
 /**
  * @author user
  *
@@ -17,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class QueueMessagingController {
 	
 	@PostMapping("/api/addqueue")
-	public @ResponseBody Map<String,Object> addMessageQueue(){
+	public @ResponseBody Map<String,Object> addMessageQueue(RequestBody request){
 		return null;
 	}
 
