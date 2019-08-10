@@ -16,5 +16,6 @@ import com.example.demo.entitiy.Queue;
  */
 @Repository
 public interface QueueRepository extends JpaRepository<Queue, Long>{
+	
 
 }
