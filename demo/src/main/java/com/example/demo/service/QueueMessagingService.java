@@ -20,5 +20,9 @@ public class QueueMessagingService {
 		
 		return null;
 	}
+	
+	public List getAllMessages(){
+		
+	}
 
 }
