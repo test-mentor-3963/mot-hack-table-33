@@ -64,6 +64,11 @@ public class QueueMessagingService {
 	}
 
 	
+	public List<Message> getAllMessages(Long queueId){
+		List<Message>  allMessages=messageRepository.getAllMessages(queueId);
+		 return allMessages;
+	}
+	
 	public List<Message> getAllMessages(){
 		List<Message>  allMessages=messageRepository.findAll();
 		 return allMessages;

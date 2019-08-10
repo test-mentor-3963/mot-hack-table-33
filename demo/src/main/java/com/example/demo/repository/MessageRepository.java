@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.entitiy.Message;
@@ -19,4 +20,6 @@ import com.example.demo.entitiy.Message;
 public interface MessageRepository extends JpaRepository<Message, Long>{
 	@Query("from Message m where trim(upper(m.message)) like trim(upper(%?1%))")
 	List<Message> findMessages(String message);
+	@Query("from Message m where m.queueId =:queueId ")
+	List<Message> getAllMessages(@Param("queueId") Long queueId);
 }

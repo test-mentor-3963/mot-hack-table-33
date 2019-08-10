@@ -34,8 +34,9 @@ public class QueueMessagingController {
 	}
 	
 	@GetMapping("/api/getAllMessages")
-	public @ResponseBody List<Message> getAllMessages(){
-		List<Message> messageList=queueMessagingService.getAllMessages();
+	public @ResponseBody List<Message> getAllMessages(@RequestParam("queueId") Long queueId){
+		System.out.println("getAllMessages");
+		List<Message> messageList=queueMessagingService.getAllMessages(queueId);
 		return messageList;
 	}
 	@GetMapping("/api/getAllQueuesMessages")
